@@ -1,0 +1,16 @@
+<nav
+  class="text-white gap-4 top-0 absolute z-50 w-full flex justify-between items-center px-4 py-3 bg-slate-900 shadow-md"
+>
+  <!-- Logo y Título -->
+  <div class="flex items-center">
+    <img src="/hello.png" alt="Logo Alerta Trabajo" class="h-8 w-8 mr-2" />
+    <span class="text-xl font-bold">Alerta Trabajo</span>
+  </div>
+
+  <!-- Enlaces de Navegación -->
+  <div class="flex gap-4">
+    <a class="hover:underline" [routerLink]="['/sobre-nosotros']">Sobre Nosotros</a>
+    <a class="hover:underline" [routerLink]="['/noticias']">Noticias</a>
+    <a class="hover:underline" [routerLink]="['/contacto']">Contacto</a>
+  </div>
+</nav>
