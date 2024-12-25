@@ -25,11 +25,13 @@
 
   <!-- Enlaces de Navegación (Ocultos en móvil) -->
   <div
-    [ngClass]="{'hidden': !isMenuOpen, 'flex': isMenuOpen}"
-    class="flex-col absolute top-16 left-0 w-full bg-slate-800 md:flex md:static md:flex-row md:w-auto"
-  >
-    <a class="hover:underline block px-4 py-2" [routerLink]="['/sobre-nosotros']">Sobre Nosotros</a>
-    <a class="hover:underline block px-4 py-2" [routerLink]="['/noticias']">Noticias</a>
-    <a class="hover:underline block px-4 py-2" [routerLink]="['/contacto']">Contacto</a>
-  </div>
+  [ngClass]="{'hidden': !isMenuOpen, 'flex': isMenuOpen}"
+  class="flex-col absolute top-16 left-0 w-full bg-slate-800 md:flex md:static md:flex-row md:w-auto"
+  (click)="onMenuClick($event)"
+>
+  <a class="hover:underline block px-4 py-2" [routerLink]="['/sobre-nosotros']" (click)="closeMenu()">Sobre Nosotros</a>
+  <a class="hover:underline block px-4 py-2" [routerLink]="['/noticias']" (click)="closeMenu()">Noticias</a>
+  <a class="hover:underline block px-4 py-2" [routerLink]="['/contacto']" (click)="closeMenu()">Contacto</a>
+</div>
+
 </nav>
