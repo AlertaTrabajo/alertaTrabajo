@@ -3,7 +3,7 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'sobre-nosotros',  // Redirecciona solo la raíz (localhost:4200)
+    redirectTo: 'sobre-nosotros',
     pathMatch: 'full',
   },
   {
@@ -20,6 +20,6 @@ export const routes: Routes = [
   },
   {
     path: '**',  // Rutas no definidas van aquí
-    redirectTo: '404',  // O redirige a una página 404 (si existe)
+    redirectTo: 'sobre-nosotros'
   },
 ];
