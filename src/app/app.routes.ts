@@ -4,7 +4,7 @@ export const routes: Routes = [
   {
     path: '',
     redirectTo: 'sobre-nosotros',
-    pathMatch: 'full',
+    pathMatch: 'full',  // Redirección al path por defecto
   },
   {
     path: 'sobre-nosotros',
@@ -20,6 +20,7 @@ export const routes: Routes = [
   },
   {
     path: '**',  // Rutas no definidas van aquí
-    redirectTo: 'sobre-nosotros'
+    redirectTo: 'sobre-nosotros',
+    pathMatch: 'full',
   },
 ];
