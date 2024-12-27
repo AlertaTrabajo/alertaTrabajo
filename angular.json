@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "alertaTrabajo-app": {
+    "alerta-trabajo": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/alerta-trabajo-app",
+            "outputPath": "dist/alerta-trabajo",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -23,17 +23,7 @@
             "assets": [
               {
                 "glob": "**/*",
-                "input": "src/assets",
-                "output": "/assets"
-              },
-              {
-                "glob": "**/*",
                 "input": "public"
-              },
-              {
-                "glob": "_redirects",
-                "input": "src",
-                "output": "/"
               }
             ],
             "styles": [
@@ -56,8 +46,8 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kB",
-                  "maximumError": "4kB"
+                  "maximumWarning": "4kB",
+                  "maximumError": "8kB"
                 }
               ],
               "outputHashing": "all"
@@ -74,10 +64,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "alertaTrabajo-app:build:production"
+              "buildTarget": "alerta-trabajo:build:production"
             },
             "development": {
-              "buildTarget": "alertaTrabajo-app:build:development"
+              "buildTarget": "alerta-trabajo:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -107,8 +97,5 @@
         }
       }
     }
-  },
-  "cli": {
-    "analytics": "10934ae4-fbd9-450d-a46f-9c6bf31ee2a6"
   }
 }
