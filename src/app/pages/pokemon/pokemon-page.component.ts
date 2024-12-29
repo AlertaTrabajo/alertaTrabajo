@@ -8,14 +8,18 @@ import {
 } from '@angular/core';
 import { Pokemon } from '../../pokemons/interfaces';
 import { PokemonsService } from '../../pokemons/services/pokemons.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { tap } from 'rxjs';
 import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'pokemon-page',
   standalone: true,
-  imports: [CommonModule],
+  imports: [
+    CommonModule,
+    RouterLink
+
+  ],
   templateUrl: './pokemon-page.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -56,4 +60,15 @@ export default class PokemonPageComponent implements OnInit {
       )
       .subscribe(this.pokemon.set);
   }
+  share() {
+    if (navigator.share) {
+      navigator.share({
+        title: this.pokemon()?.name,
+        url: window.location.href
+      }).catch(err => console.log('Error al compartir', err));
+    } else {
+      alert('Compartir no está soportado en tu navegador');
+    }
+  }
+
 }

@@ -1,42 +1,81 @@
 @if( pokemon() === null ) {
-
-  <div class="flex justify-center">
-    <h1 class="text-4xl font-bold">Loading...</h1>
+  <div class="flex justify-center items-center min-h-screen">
+    <h1 class="text-5xl font-extrabold text-gray-700 animate-pulse">Cargando noticia...</h1>
   </div>
+} @else { @let myPokemon = pokemon()!;
 
-  } @else { @let myPokemon = pokemon()!;
-
-  <section class="flex flex-col justify-center">
-    <div class="flex justify-center">
-      <h1 class="text-4xl font-bold capitalize my-5">{{ myPokemon.name }}</h1>
-    </div>
-  </section>
-
-  <section class="flex flex-col justify-center items-center w-full">
+  <article class="max-w-4xl mx-auto p-6 bg-white shadow-lg rounded-lg">
+<!-- Título y Imagen Destacada -->
+<div class="text-center mb-8">
+  <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold capitalize text-gray-900 mb-4">{{ myPokemon.name }}</h1>
+  <div class="relative w-full h-0 pb-[75%] md:pb-[56.25%] overflow-hidden rounded-lg">
     <img
       [src]="myPokemon.sprites.other?.['official-artwork']?.front_default"
       [alt]="myPokemon.name"
-      class="w-64 h-64"
-      width="256px"
-      height="256px"
+      class="absolute top-0 left-0 w-full h-full object-contain"
     />
+  </div>
+</div>
 
+
+    <!-- Contenido Principal -->
+    <section class="leading-relaxed text-lg text-gray-800 space-y-6">
+      <p>
+        <strong>{{ myPokemon.name }}</strong> ha sido noticia recientemente debido a su impacto en el mundo laboral.
+        Con habilidades únicas y una presencia destacada, se ha posicionado como uno de los nombres más relevantes en el sector.
+      </p>
+      <p>
+        Desde licitaciones hasta convenios, esta noticia es clave para entender el panorama actual. Mantente informado
+        y no pierdas detalle de las novedades.
+      </p>
+
+      <!-- Abilities como sección clave -->
+      <h2 class="text-3xl font-semibold mt-10 text-center text-gray-900">
+        Etiquetas Relacionadas
+      </h2>
+      <div class="flex flex-wrap items-center justify-center gap-4 mt-4">
+        @for (ability of myPokemon.abilities; track ability.ability.name) {
+          <span
+            class="bg-blue-100 text-blue-800 text-sm font-medium px-4 py-2 rounded-lg shadow-sm hover:bg-blue-200 transition">
+            {{ ability.ability.name }}
+          </span>
+        }
+      </div>
+    </section>
+
+    <!-- Audio del Pokémon (como elemento multimedia relacionado) -->
     @if( myPokemon.cries.latest !== null ) {
-    <audio controls class="my-10">
-      <source [src]="myPokemon.cries.latest" type="audio/wav" />
-    </audio>
+      <section class="flex justify-center my-10">
+        <audio controls class="w-full max-w-lg">
+          <source [src]="myPokemon.cries.latest" type="audio/wav" />
+        </audio>
+      </section>
     }
-  </section>
 
-  <section class="flex flex-col justify-center">
-    <h2 class="text-2xl font-bold mt-2">Abilities</h2>
-    <div class="flex flex-wrap items-center">
-      @for (ability of myPokemon.abilities; track ability.ability.name) {
-      <span class="mx-2">
-        {{ ability.ability.name }}
-      </span>
-      }
-    </div>
-  </section>
+<!-- Botones de Acción -->
+<div class="flex justify-between items-center mt-8 sm:mt-12 space-x-2 sm:space-x-4">
+  <button
+    class="flex items-center bg-blue-600 text-white px-3 sm:px-6 py-2 sm:py-3 text-sm sm:text-base rounded-lg hover:bg-blue-700 transition duration-300 ease-in-out font-medium shadow-md"
+    (click)="share()"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" viewBox="0 0 20 20" fill="currentColor">
+      <path d="M15 8a3 3 0 10-2.977-2.63l-4.94 2.47a3 3 0 100 4.319l4.94 2.47a3 3 0 10.895-1.789l-4.94-2.47a3.027 3.027 0 000-.74l4.94-2.47C13.456 7.68 14.19 8 15 8z" />
+    </svg>
+    Compartir Noticia
+  </button>
 
-  }
+  <button
+    class="flex items-center bg-gray-800 text-white px-3 sm:px-6 py-2 sm:py-3 text-sm sm:text-base rounded-lg hover:bg-gray-900 transition duration-300 ease-in-out font-medium shadow-md"
+    routerLink="/noticias"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" viewBox="0 0 20 20" fill="currentColor">
+      <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+    </svg>
+    Volver al Inicio
+  </button>
+</div>
+
+
+
+  </article>
+}

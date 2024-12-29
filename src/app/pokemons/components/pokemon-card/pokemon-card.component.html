@@ -1,16 +1,19 @@
-<div
-  class="bgblue-500 animate-fadeIn h-44 bg-opacity-25
-  rounded-lg shadow-md flex flex-col p-4 items-center justify-center cursor-pointer"
-
-  [routerLink]="['/pokemons', pokemon().id ]"
-  >
-  <img [src]="pokemonImage()" [alt]="pokemon().name" class="w-24 h-24" width="96px" height="96px" />
-
-  <div class="text-center mt-2">
-    <h2 class="text-xl font-bold capitalize text-white">
-      {{ pokemon().name }}
-    </h2>
-
+<a [routerLink]="['/noticias', pokemon().id]"
+   class="block bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-transform transform hover:scale-105">
+  <!-- Imagen con patrón de fondo -->
+  <div class="relative pt-[75%] bg-gradient-to-br from-blue-100 to-purple-100">
+    <div class="absolute inset-0 bg-opacity-50 bg-pattern"></div>
+    <img [src]="pokemonImage()" [alt]="pokemon().name"
+         class="absolute inset-0 w-full h-full object-contain p-2 transition duration-300 ease-in-out transform hover:scale-105" />
   </div>
 
-</div>
+  <!-- Contenido -->
+  <div class="p-4">
+    <h2 class="text-xl font-semibold capitalize text-gray-900 mb-2">
+      {{ pokemon().name }}
+    </h2>
+    <p class="text-sm text-gray-600 line-clamp-2">
+      {{ pokemon().description || 'No hay descripción disponible' }}
+    </p>
+  </div>
+</a>

@@ -12,13 +12,9 @@ export class PokemonCardComponent {
 
   public pokemon = input.required<SimplePokemon>();
 
-  // logEffect = effect(()=>{
-  //   console.log('PokemonCard:', this.pokemon());
-  // })
-
+  // Obtener imagen de noticia (Pokémon como imagen destacada)
   public readonly pokemonImage = computed(
     () =>
     `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${this.pokemon().id}.png`
   );
-
 }
