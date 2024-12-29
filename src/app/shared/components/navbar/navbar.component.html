@@ -1,37 +1,29 @@
 <nav
-  class="text-white gap-4 top-0 fixed z-50 w-full flex justify-between items-center px-4 py-3 bg-slate-900 shadow-md"
+  class="text-white gap-4 top-0 absolute z-50 w-full flex justify-end px-2 py-3 bg-slate-900 shadow-md"
 >
-  <!-- Logo y Título -->
-  <div class="flex items-center">
-    <img src="/hello.png" alt="Logo Alerta Trabajo" class="h-8 w-8 mr-2" />
-    <span class="text-xl font-bold">Alerta Trabajo</span>
-  </div>
+<a
+class="hover:underline"
+routerLinkActive="text-blue-500 underline"
+routerLink="/pokemons"
+>Pokemons</a
+>
 
-  <!-- Botón del Menú (Visible en pantallas pequeñas) -->
-  <button
-    class="block md:hidden"
-    (click)="toggleMenu()"
-    aria-label="Abrir Menú"
+  <a
+    class="hover:underline"
+    routerLinkActive="text-blue-500 underline"
+    [routerLink]="['/about']"
+    >About</a
   >
-    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
-        d="M4 6h16M4 12h16m-7 6h7"
-      />
-    </svg>
-  </button>
-
-  <!-- Enlaces de Navegación (Ocultos en móvil) responsive -->
-  <div
-  [ngClass]="{'hidden': !isMenuOpen, 'flex': isMenuOpen}"
-  class="flex-col absolute top-16 left-0 w-full bg-slate-900 md:flex md:static md:flex-row md:w-auto"
-  (click)="onMenuClick($event)"
->
-  <a class="hover:underline block px-4 py-2" [routerLink]="['/sobre-nosotros']" (click)="closeMenu()">Sobre Nosotros</a>
-  <a class="hover:underline block px-4 py-2" [routerLink]="['/noticias']" (click)="closeMenu()">Noticias</a>
-  <a class="hover:underline block px-4 py-2" [routerLink]="['/contacto']" (click)="closeMenu()">Contacto</a>
-</div>
-
+  <a
+    class="hover:underline"
+    routerLinkActive="text-blue-500 underline"
+    routerLink="/pricing"
+    >Pricing</a
+  >
+  <a
+    class="hover:underline"
+    routerLinkActive="text-blue-500 underline"
+    routerLink="/contact"
+    >Contact</a
+  >
 </nav>

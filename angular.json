@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "alerta-trabajo": {
+    "pokemon-ssr": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/alerta-trabajo",
+            "outputPath": "dist/pokemon-ssr",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -24,11 +24,6 @@
               {
                 "glob": "**/*",
                 "input": "public"
-              },
-              {
-                "glob": "_redirects",
-                "input": "src",
-                "output": "/"
               }
             ],
             "styles": [
@@ -69,10 +64,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "alerta-trabajo:build:production"
+              "buildTarget": "pokemon-ssr:build:production"
             },
             "development": {
-              "buildTarget": "alerta-trabajo:build:development"
+              "buildTarget": "pokemon-ssr:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -92,11 +87,6 @@
               {
                 "glob": "**/*",
                 "input": "public"
-              },
-              {
-                "glob": "_redirects",
-                "input": "src",
-                "output": "/"
               }
             ],
             "styles": [

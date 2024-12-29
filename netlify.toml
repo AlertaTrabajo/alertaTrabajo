@@ -1,4 +1,0 @@
-[[redirects]]
-  from = "/*"
-  to = "/index.csr.html"
-  status = 200
