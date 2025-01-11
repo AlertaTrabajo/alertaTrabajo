@@ -1,10 +1,10 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
-  selector: 'pokemon-list-skeleton',
+  selector: 'article-list-skeleton',
   standalone: true,
   imports: [],
-  templateUrl: './pokemon-list-skeleton.component.html',
+  templateUrl: './article-list-skeleton.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PokemonListSkeletonComponent {}
+export class ArticleListSkeletonComponent {}

@@ -1,0 +1,11 @@
+<div class="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+  @for (article of articlesList(); track article._id) {
+    <article-card [article]="article" />
+  }
+</div>
+
+@if (articlesList().length === 0) {
+  <div class="text-center py-10">
+    No hay artículos disponibles.
+  </div>
+}

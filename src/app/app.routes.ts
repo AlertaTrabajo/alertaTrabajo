@@ -6,17 +6,18 @@ export const routes: Routes = [
     path: 'sobre-nosotros',
     loadComponent: () => import('./pages/about/about-page.component'),
   },
-  {
-    path: 'noticias',
-    loadComponent: () => import('./pages/pokemons/pokemons-page.component'),
-  },
-  {
-    path: 'noticias/:id',
-    loadComponent: () => import('./pages/pokemon/pokemon-page.component'),
-  },
+
   {
     path: 'contacto',
     loadComponent: () => import('./pages/contact/contact-page.component'),
+  },
+  {
+    path: 'articulos',
+    loadComponent: () => import('./pages/articles/articles-page.component'),
+  },
+  {
+    path: 'articulos/:slug',
+    loadComponent: () => import('./pages/article/article-page.component'),
   },
 
   {
@@ -24,7 +25,7 @@ export const routes: Routes = [
     redirectTo: () => {
       // const authService = inject(AuthService)
 
-      return 'noticias';
+      return 'articulos';
     },
   },
 ];
