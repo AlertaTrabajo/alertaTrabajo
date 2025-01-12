@@ -44,7 +44,9 @@ export default class ArticlePageComponent implements OnInit {
       .pipe(
         tap((article) => {
           const pageTitle = article.title;
-          const pageDescription = article.content.substring(0, 150);
+          const cleanContent = article.content.replace(/@@/g, '').replace(/\$\$/g, '');
+          const pageDescription = cleanContent.substring(0, 150);
+
           this.title.setTitle(pageTitle);
 
           this.meta.updateTag({
@@ -66,25 +68,30 @@ export default class ArticlePageComponent implements OnInit {
   }
 
   shareOnTwitter() {
-    const text = `Echa un vistazo a este artículo: ${this.article()?.title}`;
+    const text = `Descubre este artículo interesante: ${this.article()?.title}`;
     const url = encodeURIComponent(window.location.href);
     window.open(`https://twitter.com/intent/tweet?text=${text}&url=${url}`, '_blank');
   }
 
   shareOnFacebook() {
+    const text = `Nuevo artículo publicado: ${this.article()?.title}`;
     const url = encodeURIComponent(window.location.href);
-    window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank');
+    window.open(`https://www.facebook.com/sharer/sharer.php?u=${text}&url=${url}`, '_blank');
   }
 
   shareOnBluesky() {
-    // Bluesky no tiene una API de compartir directa, podrías abrir la página principal
-    window.open('https://bsky.app', '_blank');
+    const text = `Nuevo artículo publicado: ${this.article()?.title}`;
+    const url = encodeURIComponent(window.location.href);
+    window.open(`https://bsky.app/intent/compose?text=${encodeURIComponent(text + ' ' + url)}`, '_blank');
   }
 
+
   shareOnWhatsApp() {
-    const text = encodeURIComponent(`Echa un vistazo a este artículo: ${this.article()?.title} ${window.location.href}`);
-    window.open(`https://wa.me/?text=${text}`, '_blank');
+    const text = `Nuevo artículo publicado: ${this.article()?.title}`;
+    const url = encodeURIComponent(window.location.href);
+    window.open(`https://wa.me/?text=${encodeURIComponent(text + ' ' + url)}`, '_blank');
   }
+
 
   shareOnTelegram() {
     const text = encodeURIComponent(`Echa un vistazo a este artículo: ${this.article()?.title} ${window.location.href}`);
@@ -98,6 +105,5 @@ export default class ArticlePageComponent implements OnInit {
       console.error('Error al copiar el enlace: ', err);
     });
   }
-  
 
 }
