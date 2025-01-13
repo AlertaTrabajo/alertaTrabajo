@@ -1,5 +1,5 @@
 export const environments = {
-  baseUrl: 'https://quixotic-nanine-aletatrabajo-29b23891.koyeb.app',
+  baseUrl: 'https://alerta-trabajo-261918624074.us-central1.run.app',
 
 }
 
