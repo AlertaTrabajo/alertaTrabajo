@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "alerta-trabajo": {
+    "pokemon-ssr": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/alerta-trabajo",
+            "outputPath": "dist/pokemon-ssr",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -23,8 +23,7 @@
             "assets": [
               {
                 "glob": "**/*",
-                "input": "public",
-                "output": "/"
+                "input": "public"
               }
             ],
             "styles": [
@@ -34,7 +33,7 @@
             "server": "src/main.server.ts",
             "prerender": true,
             "ssr": {
-              "entry": "src/server.ts"
+              "entry": "server.ts"
             }
           },
           "configurations": {
@@ -47,8 +46,8 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "4kB",
-                  "maximumError": "8kB"
+                  "maximumWarning": "2kB",
+                  "maximumError": "4kB"
                 }
               ],
               "outputHashing": "all"
@@ -65,10 +64,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "alerta-trabajo:build:production"
+              "buildTarget": "pokemon-ssr:build:production"
             },
             "development": {
-              "buildTarget": "alerta-trabajo:build:development"
+              "buildTarget": "pokemon-ssr:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -98,5 +97,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "10934ae4-fbd9-450d-a46f-9c6bf31ee2a6"
   }
 }

@@ -1,30 +1,25 @@
-import { Component, computed, input, OnInit } from '@angular/core';
-import { SimpleArticle } from '../../interfaces/article.interface';
-import { RouterLink } from '@angular/router';
+import { ChangeDetectionStrategy, Component, computed, effect, input } from '@angular/core';
+import { SimpleArticle } from '../../interfaces';
+import { TranslateCategoryPipe } from '../../pipes/translate-category.pipe';
 import { CommonModule } from '@angular/common';
-import { FormatTextListPipe } from '../../../../pipes/formate-text-list.pipe';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'article-card',
   standalone: true,
   imports: [
-    RouterLink,
     CommonModule,
-    FormatTextListPipe,
+    RouterLink
   ],
   templateUrl: './article-card.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ArticleCardComponent implements OnInit {
+export class ArticleCardComponent {
+
   public article = input.required<SimpleArticle>();
 
-  public readonly articleImage = computed(() =>
-    this.article().imgUrl || 'https://via.placeholder.com/400'
-  );
 
-  ngOnInit(): void {
-    this.article().tags = this.article().tags?.map(tag =>
-      tag.replace(/[@$]/g, '')
-    ) ?? [];
-  }
-
-}
+  // logEffect = effect(()=> {
+  //   console.log('articleCard: ' , this.article());
+  // })
+ }

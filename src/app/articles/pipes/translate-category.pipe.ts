@@ -1,7 +1,8 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'translateCategory'
+  name: 'translateCategory',
+  standalone: true
 })
 export class TranslateCategoryPipe implements PipeTransform {
   private translations: { [key: string]: string } = {

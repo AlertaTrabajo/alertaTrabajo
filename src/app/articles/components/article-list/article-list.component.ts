@@ -1,17 +1,15 @@
-import { Component, input, computed } from '@angular/core';
-import { SimpleArticle } from '../../interfaces/article.interface';
-import { ArticleCardComponent } from '../article-card/article-card.component';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { ArticleCardComponent } from "../article-card/article-card.component";
+import { SimpleArticle } from '../../interfaces';
 
 @Component({
   selector: 'article-list',
   standalone: true,
   imports: [ArticleCardComponent],
   templateUrl: './article-list.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ArticleListComponent {
-  // Recibe la señal como input
-  public articles = input<SimpleArticle[]>();
 
-  // Computed para devolver el array subyacente
-  public articlesList = computed(() => this.articles() ?? []);
+  public articles = input.required<SimpleArticle[]>();
 }
