@@ -8,16 +8,15 @@ import { TranslateCategoryPipe } from '../../articles/pipes/translate-category.p
 import { FormatTextPipe } from '../../articles/pipes/format-text.pipe';
 
 @Component({
-  selector: 'article-page',
-  standalone: true,
-  imports: [
-    CommonModule,
-    SpanishDatePipe,
-    TranslateCategoryPipe,
-    FormatTextPipe
-  ],
-  templateUrl: './article-page.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'article-page',
+    imports: [
+        CommonModule,
+        SpanishDatePipe,
+        TranslateCategoryPipe,
+        FormatTextPipe
+    ],
+    templateUrl: './article-page.component.html',
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export default class ArticlePageComponent implements OnInit {
 

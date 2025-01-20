@@ -3,11 +3,10 @@ import { ArticleCardComponent } from "../article-card/article-card.component";
 import { SimpleArticle } from '../../interfaces';
 
 @Component({
-  selector: 'article-list',
-  standalone: true,
-  imports: [ArticleCardComponent],
-  templateUrl: './article-list.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'article-list',
+    imports: [ArticleCardComponent],
+    templateUrl: './article-list.component.html',
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ArticleListComponent {
 

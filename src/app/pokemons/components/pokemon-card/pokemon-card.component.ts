@@ -3,13 +3,12 @@ import { SimplePokemon } from '../../interfaces';
 import { RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'pokemon-card',
-  standalone: true,
-  imports: [
-    RouterLink
-  ],
-  templateUrl: './pokemon-card.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'pokemon-card',
+    imports: [
+        RouterLink
+    ],
+    templateUrl: './pokemon-card.component.html',
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PokemonCardComponent {
 

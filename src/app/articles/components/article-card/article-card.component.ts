@@ -5,14 +5,13 @@ import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'article-card',
-  standalone: true,
-  imports: [
-    CommonModule,
-    RouterLink
-  ],
-  templateUrl: './article-card.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'article-card',
+    imports: [
+        CommonModule,
+        RouterLink
+    ],
+    templateUrl: './article-card.component.html',
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ArticleCardComponent {
 

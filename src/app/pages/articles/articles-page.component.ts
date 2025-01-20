@@ -9,14 +9,13 @@ import { map, tap } from 'rxjs';
 import { Title } from '@angular/platform-browser';
 
 @Component({
-  selector: 'articles-page',
-  standalone: true,
-  imports: [
-    ArticleListComponent,
-    ArticleListSkeletonComponent
-  ],
-  templateUrl: './articles-page.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'articles-page',
+    imports: [
+        ArticleListComponent,
+        ArticleListSkeletonComponent
+    ],
+    templateUrl: './articles-page.component.html',
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export default class ArticlesComponent implements OnInit {
 
