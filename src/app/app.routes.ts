@@ -6,11 +6,11 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/about/about-page.component'),
   },
   {
-    path: 'pokemons',
+    path: 'news',
     loadComponent: () => import('./pages/pokemons/pokemons-page.component'),
   },
   {
-    path: 'pokemons/:id',
+    path: 'news/:id',
     loadComponent: () => import('./pages/pokemon/pokemon-page.component'),
   },
   {
@@ -29,9 +29,7 @@ export const routes: Routes = [
   {
     path: '**',
     redirectTo: () => {
-      // const authService = inject(AuthService)
-
-      return 'about';
+      return 'articles';
     },
   },
 ];

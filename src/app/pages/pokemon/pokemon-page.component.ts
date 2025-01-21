@@ -16,7 +16,7 @@ export default class PokemonPageComponent implements OnInit {
   private route = inject(ActivatedRoute);
   public pokemon = signal<Pokemon | null>(null);
   private title = inject(Title);
-  private meta = inject(Meta)
+  private meta = inject(Meta);
 
 
   ngOnInit(): void {

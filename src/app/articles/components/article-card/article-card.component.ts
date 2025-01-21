@@ -18,7 +18,4 @@ export class ArticleCardComponent {
   public article = input.required<SimpleArticle>();
 
 
-  // logEffect = effect(()=> {
-  //   console.log('articleCard: ' , this.article());
-  // })
  }

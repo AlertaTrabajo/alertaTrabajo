@@ -1,29 +1,37 @@
-<nav
-  class="text-white gap-4 top-0 absolute z-50 w-full flex justify-end px-2 py-3 bg-slate-900 shadow-md"
->
-  <a
-    class="hover:underline"
-    routerLinkActive="text-blue-500 underline"
-    [routerLink]="['/about']"
-    >About</a
-  >
-  <a
-    class="hover:underline"
-    routerLinkActive="text-blue-500 underline"
-    routerLink="/pokemons"
-    >Pokemons</a
-  >
+<nav class="text-white top-0 fixed z-50 w-full bg-slate-900 shadow-md">
+  <div class="flex justify-between items-center px-4 py-3 max-w-screen-xl mx-auto">
 
-  <a
-  class="hover:underline"
-  routerLinkActive="text-blue-500 underline"
-  routerLink="/articles"
-  >Artículos</a
->
-  <a
-    class="hover:underline"
-    routerLinkActive="text-blue-500 underline"
-    routerLink="/contact"
-    >Contact</a
-  >
+    <!-- Logo y Título -->
+    <div class="flex items-center gap-3">
+      <a routerLink="/noticias" class="flex items-center gap-3">
+        <img src="/alerta-trabajo-logo.png" alt="Alerta Trabajo Logo" class="h-10 w-auto" />
+        <h1 class="text-xl font-bold hover:text-blue-500 transition duration-300">ALERTA TRABAJO</h1>
+      </a>
+    </div>
+
+    <!-- Botón del Menú Hamburguesa (solo visible en móviles) -->
+    <div class="md:hidden">
+      <button class="text-white focus:outline-none" (click)="toggleMenu()">
+        <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Enlaces de Navegación (Desktop) -->
+    <div class="hidden md:flex gap-6">
+      <a class="hover:underline" routerLinkActive="text-blue-500 underline" routerLink="/news">Noticias</a>
+      <a class="hover:underline" routerLinkActive="text-blue-500 underline" routerLink="/articulos">Artículos</a>
+      <a class="hover:underline" routerLinkActive="text-blue-500 underline" [routerLink]="['/about']">Sobre nosotros</a>
+      <a class="hover:underline" routerLinkActive="text-blue-500 underline" routerLink="/contact">Contacto</a>
+    </div>
+  </div>
+
+  <!-- Menú Desplegable (Móvil) -->
+  <div [ngClass]="menuStateClass()" class="md:hidden bg-slate-800">
+    <a class="block py-2 px-4 hover:bg-slate-700" routerLinkActive="text-blue-400" routerLink="/news" (click)="toggleMenu()">Noticias</a>
+    <a class="block py-2 px-4 hover:bg-slate-700" routerLinkActive="text-blue-400" routerLink="/articles" (click)="toggleMenu()">Artículos</a>
+    <a class="block py-2 px-4 hover:bg-slate-700" routerLinkActive="text-blue-400" [routerLink]="['/about']" (click)="toggleMenu()">Sobre nosotros</a>
+    <a class="block py-2 px-4 hover:bg-slate-700" routerLinkActive="text-blue-400" routerLink="/contact" (click)="toggleMenu()">Contacto</a>
+  </div>
 </nav>
