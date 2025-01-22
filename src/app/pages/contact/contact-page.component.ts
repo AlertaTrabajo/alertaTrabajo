@@ -17,7 +17,7 @@ export default class ContactPageComponent implements OnInit {
     { name: 'X', icon: '/icons/x.svg', url: 'https://x.com/Alerta_Trabajo' },
     { name: 'Bluesky', icon: '/icons/bluesky.svg', url: 'https://bsky.app/profile/alertatrabajo.bsky.social' },
     { name: 'Facebook', icon: '/icons/facebook.svg', url: 'https://www.facebook.com/people/Alerta-Trabajo-Noticias/61570940470146/' },
-    { name: 'Telegram', icon: '/icons/telegram.svg', url: 'https://t.me/alertatrabajo' },
+    { name: 'Telegram', icon: '/icons/telegram.svg', url: 'https://t.me/+U4zCF8BSqtAzMTA0' },
   ];
 
   ngOnInit(): void {

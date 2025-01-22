@@ -80,10 +80,8 @@ export default class ArticlePageComponent implements OnInit {
     const slug = this.article()?.slug;
     if (!slug) return;
 
-    const url = encodeURIComponent(`https://alertatrabajo.com/articles/${slug}`);
-    const text = encodeURIComponent(`¡Echa un vistazo a este artículo: "${this.article()?.title}"!`);
-    const twitterUrl = `https://twitter.com/intent/tweet?text=${text}&url=${url}`;
-
+    const url = `https://alertatrabajo.com/articles/${slug}`;
+    const twitterUrl = `https://twitter.com/intent/tweet?url=${url}`;
     window.open(twitterUrl, '_blank');
   }
 
@@ -91,47 +89,42 @@ export default class ArticlePageComponent implements OnInit {
     const slug = this.article()?.slug;
     if (!slug) return;
 
-    const url = encodeURIComponent(`https://alertatrabajo.com/articles/${slug}`);
+    const url = `https://alertatrabajo.com/articles/${slug}`;
     const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
-
     window.open(facebookUrl, '_blank');
   }
 
   shareOnBluesky(): void {
     const slug = this.article()?.slug;
-    if (!slug) return;
+    if (!slug) {
+      alert('No se encontró el enlace para compartir.');
+      return;
+    }
 
     const url = `https://alertatrabajo.com/articles/${slug}`;
-    const text = `¡Echa un vistazo a este artículo: "${this.article()?.title}"!\n\n${url}`;
 
-    // Crear un elemento textarea temporal
-    const textArea = document.createElement('textarea');
-    textArea.value = text;
-    document.body.appendChild(textArea);
-
-    // Seleccionar y copiar el texto
-    textArea.select();
-    document.execCommand('copy');
-
-    // Eliminar el elemento temporal
-    document.body.removeChild(textArea);
-
-    // Abrir Bluesky en una nueva pestaña
-    window.open('https://bsky.app', '_blank');
-
-    // Notificar al usuario
-    alert('El texto ha sido copiado al portapapeles. Pégalo en tu publicación de Bluesky.');
+    // Copiar el enlace al portapapeles
+    navigator.clipboard.writeText(url)
+      .then(() => {
+        // Abrir Bluesky en una nueva pestaña
+        window.open('https://bsky.app', '_blank');
+        // Notificar al usuario
+        alert('¡El enlace ha sido copiado al portapapeles! Pégalo en tu publicación de Bluesky.');
+      })
+      .catch((err) => {
+        console.error('Error al copiar el enlace:', err);
+        alert('No se pudo copiar el enlace al portapapeles. Por favor, copia el siguiente enlace manualmente:\n' + url);
+      });
   }
+
 
 
   shareOnWhatsApp(): void {
     const slug = this.article()?.slug;
     if (!slug) return;
 
-    const url = encodeURIComponent(`https://alertatrabajo.com/articles/${slug}`);
-    const text = encodeURIComponent(`¡Echa un vistazo a este artículo: "${this.article()?.title}"! ${url}`);
-    const whatsappUrl = `https://api.whatsapp.com/send?text=${text}`;
-
+    const url = `https://alertatrabajo.com/articles/${slug}`;
+    const whatsappUrl = `https://api.whatsapp.com/send?text=${url}`;
     window.open(whatsappUrl, '_blank');
   }
 
@@ -139,10 +132,8 @@ export default class ArticlePageComponent implements OnInit {
     const slug = this.article()?.slug;
     if (!slug) return;
 
-    const url = encodeURIComponent(`https://alertatrabajo.com/articles/${slug}`);
-    const text = encodeURIComponent(`¡Echa un vistazo a este artículo: "${this.article()?.title}"!`);
-    const telegramUrl = `https://t.me/share/url?url=${url}&text=${text}`;
-
+    const url = `https://alertatrabajo.com/articles/${slug}`;
+    const telegramUrl = `https://t.me/share/url?url=${url}`;
     window.open(telegramUrl, '_blank');
   }
 
