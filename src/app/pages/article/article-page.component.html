@@ -1,19 +1,22 @@
-@if( article() === null ) {
+@if (article() === null) {
   <div class="flex justify-center items-center min-h-screen">
-    <h1 class="text-5xl font-extrabold text-gray-700 animate-pulse">Cargando artículo...</h1>
+    <div class="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-blue-500"></div>
   </div>
-  } @else { @let myArticle = article()!;
+} @else {
+  @let myArticle = article()!;
+  <!-- Resto del código del artículo -->
 
-  <article class="max-w-4xl mx-auto p-8 bg-white shadow-lg rounded-lg">
+
+  <article class="max-w-4xl mx-auto p-4 sm:p-6 md:p-8 bg-white shadow-lg rounded-lg">
     <!-- Título -->
-    <div class="text-center mb-6">
-      <h1 class="text-4xl md:text-5xl font-extrabold capitalize text-gray-900 mb-4">
+    <div class="text-center mb-4 sm:mb-6">
+      <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold capitalize text-gray-900">
         {{ myArticle.title }}
       </h1>
     </div>
 
     <!-- Imagen destacada -->
-    <div class="relative w-full h-0 pb-[56.25%] overflow-hidden rounded-lg shadow-md mb-6">
+    <div class="relative w-full h-0 pb-[56.25%] overflow-hidden rounded-lg shadow-md mb-4 sm:mb-6">
       <img [src]="myArticle.imgUrl" [alt]="myArticle.title"
         class="absolute top-0 left-0 w-full h-full object-cover" />
     </div>
@@ -38,7 +41,7 @@
     </div>
 
     <!-- Contenido Principal -->
-    <section class="leading-relaxed text-lg text-gray-800 space-y-6 mb-8">
+    <section class="leading-relaxed text-base sm:text-lg text-gray-800 space-y-4 sm:space-y-6 mb-6 sm:mb-8">
       <div [innerHTML]="myArticle.content | formatText"></div>
     </section>
 
