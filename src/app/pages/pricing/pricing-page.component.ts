@@ -25,8 +25,6 @@ export default class PricingPageComponent implements OnInit {
     //   document.title = 'Pricing Page';
     // }
 
-    // console.log({ hola: 'mundo' });
-
     this.title.setTitle('Pricing Page');
     this.meta.updateTag({
       name: 'description',

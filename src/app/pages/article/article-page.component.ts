@@ -68,7 +68,6 @@ export default class ArticlePageComponent implements OnInit {
 
     navigator.clipboard.writeText(url)
       .then(() => {
-        console.log('Enlace copiado al portapapeles:', url);
         alert('¡Enlace copiado al portapapeles!');
       })
       .catch((err) => {
