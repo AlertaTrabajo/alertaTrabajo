@@ -17,7 +17,7 @@ export class ArticlesService {
     page = Math.max(0, page);
 
     return this.http.get<ArticleApiResponse[]>(
-      `http://localhost:3000/articles?limit=10&offset=${page * 10}`
+      `https://alerta-trabajo-backend-261918624074.us-central1.run.app/articles?limit=10&offset=${page * 10}`
     ).pipe(
       map((resp) => {
         const simpleArticles: SimpleArticle[] = resp.map((article) => ({
@@ -34,6 +34,6 @@ export class ArticlesService {
   }
 
   public loadArticle(slug: string){
-    return this.http.get<Article>(`http://localhost:3000/articles/${slug}`)
+    return this.http.get<Article>(`https://alerta-trabajo-backend-261918624074.us-central1.run.app/articles/${slug}`)
   }
 }
