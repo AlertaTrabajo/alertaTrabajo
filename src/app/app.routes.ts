@@ -5,14 +5,15 @@ export const routes: Routes = [
     path: 'about',
     loadComponent: () => import('./pages/about/about-page.component'),
   },
-  // {
-  //   path: 'news',
-  //   loadComponent: () => import('./pages/pokemons/pokemons-page.component'),
-  // },
-  // {
-  //   path: 'news/:id',
-  //   loadComponent: () => import('./pages/pokemon/pokemon-page.component'),
-  // },
+
+  {
+    path: 'news',
+    loadComponent: () => import('./pages/jobnews/job-news-page.component'),
+  },
+  {
+    path: 'news/:slug',
+    loadComponent: () => import('./pages/jobnew/job-new-page.component'),
+  },
   {
     path: 'contact',
     loadComponent: () => import('./pages/contact/contact-page.component'),

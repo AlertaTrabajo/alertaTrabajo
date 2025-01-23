@@ -1,19 +1,20 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
-import { SimpleArticle } from '../../interfaces';
+import { SimpleJobNew } from '../../interfaces';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 
 @Component({
-    selector: 'article-card',
+    selector: 'job-new-card',
     imports: [
         CommonModule,
         RouterLink
     ],
-    templateUrl: './article-card.component.html',
+    templateUrl: './job-new-card.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ArticleCardComponent {
+export class JobNewCardComponent {
 
-  public article = input.required<SimpleArticle>();
+  public jobNew = input.required<SimpleJobNew>();
+
 
  }

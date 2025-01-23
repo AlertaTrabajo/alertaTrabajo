@@ -50,7 +50,7 @@ export default class ContactPageComponent implements OnInit {
 
     this.meta.updateTag({
       name: 'og:url',
-      content: 'https://alertatrabajo.com/contacto'
+      content: 'https://alertatrabajo.com/contact'
     });
 
     this.meta.updateTag({
