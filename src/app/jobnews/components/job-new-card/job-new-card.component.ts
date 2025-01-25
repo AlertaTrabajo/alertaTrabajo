@@ -16,5 +16,4 @@ export class JobNewCardComponent {
 
   public jobNew = input.required<SimpleJobNew>();
 
-
  }

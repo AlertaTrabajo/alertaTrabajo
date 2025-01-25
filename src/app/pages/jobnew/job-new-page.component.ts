@@ -43,11 +43,11 @@ export default class JobNewPageComponent implements OnInit {
           this.meta.updateTag({ property: 'og:title', content: pageTitle });
           this.meta.updateTag({ property: 'og:description', content: pageDescription });
           this.meta.updateTag({ property: 'og:image', content: jobNew.imgUrl });
-          this.meta.updateTag({ property: 'og:url', content: `https://alertatrabajo.com/articles/${jobNew.slug}` });
-          this.meta.updateTag({ property: 'og:type', content: 'article' });
+          this.meta.updateTag({ property: 'og:url', content: `https://alertatrabajo.com/news/${jobNew.slug}` });
+          this.meta.updateTag({ property: 'og:type', content: 'job-new' });
 
-          this.meta.updateTag({ name: 'article:published_time', content: new Date(jobNew.date).toISOString() });
-          this.meta.updateTag({ name: 'article:section', content: jobNew.category });
+          this.meta.updateTag({ name: 'job-new:published_time', content: new Date(jobNew.date).toISOString() });
+          this.meta.updateTag({ name: 'job-new:section', content: jobNew.category });
 
           if (jobNew.tags && jobNew.tags.length > 0) {
             this.meta.updateTag({ name: 'keywords', content: jobNew.tags.join(', ') });
@@ -64,7 +64,7 @@ export default class JobNewPageComponent implements OnInit {
       return;
     }
 
-    const url = `https://alertatrabajo.com/articles/${slug}`;
+    const url = `https://alertatrabajo.com/news/${slug}`;
 
     navigator.clipboard.writeText(url)
       .then(() => {
