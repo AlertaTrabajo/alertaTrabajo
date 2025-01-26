@@ -10,7 +10,6 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
     RouterLinkActive,
   ],
   templateUrl: './navbar.component.html',
-  host: { 'data-instance': 'navbar-unique' }, // Atributo único para resolver colisiones
 })
 export class NavbarComponent {
   isMenuOpen = signal(false);

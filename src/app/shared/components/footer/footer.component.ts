@@ -8,6 +8,5 @@ import { RouterLink } from '@angular/router';
     RouterLink
   ],
   templateUrl: './footer.component.html',
-  host: { 'data-id': 'footer-unique' }, // Atributo único para resolver colisiones
 })
 export class FooterComponent {}
