@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --base-href /alerta-trabajo/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:alerta-trabajo": "node dist/alerta-trabajo/server/server.mjs"

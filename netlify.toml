@@ -1,0 +1,20 @@
+[build]
+  base = "/"
+  publish = "dist/alerta-trabajo/browser"
+  command = "npm run build"
+
+[[redirects]]
+  from = "/alerta-trabajo/*"
+  to = "/alerta-trabajo/index.server.html"
+  status = 200
+
+[[redirects]]
+  from = "/*"
+  to = "/index.server.html"
+  status = 200
+
+[functions]
+  directory = "dist/alerta-trabajo/server"
+
+[build.environment]
+  NODE_VERSION = "18"

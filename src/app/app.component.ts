@@ -14,7 +14,6 @@ import { FooterComponent } from './shared/components/footer/footer.component';
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  host: { 'data-app-root-component': 'true' }, // Atributo único para resolver colisiones
 })
 export class AppComponent implements OnInit {
   title = 'Alerta-Trabajo';
