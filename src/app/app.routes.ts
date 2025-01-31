@@ -19,6 +19,10 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/contact/contact-page.component'),
   },
   {
+    path: 'privacy-policy',
+    loadComponent: () => import('./pages/privacy-policy/privacy-policy-page.component'),
+  },
+  {
     path: 'articles',
     loadComponent: () => import('./pages/articles/articles-page.component'),
   },
