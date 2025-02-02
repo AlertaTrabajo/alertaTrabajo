@@ -4,7 +4,9 @@ import { SimpleJobNew } from '../../interfaces';
 
 @Component({
     selector: 'job-new-list',
-    imports: [JobNewCardComponent],
+    imports: [
+      JobNewCardComponent,
+    ],
     templateUrl: './job-new-list.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush
 })

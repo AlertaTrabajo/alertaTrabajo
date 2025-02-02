@@ -20,7 +20,7 @@ export class ArticlesService {
     page = Math.max(0, page);
 
     return this.http.get<ArticleApiResponse[]>(
-      `${this.baseUrl}/articles?limit=10&offset=${page * 10}`
+      `${this.baseUrl}/articles?limit=9&offset=${page * 9}`
     ).pipe(
       map((resp) => {
         const simpleArticles: SimpleArticle[] = resp.map((article) => ({

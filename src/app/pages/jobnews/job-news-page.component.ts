@@ -1,5 +1,5 @@
-import { ChangeDetectionStrategy, Component, inject, OnInit, signal } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ChangeDetectionStrategy, Component, effect, inject, signal } from '@angular/core';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { map, tap } from 'rxjs';
 import { Title } from '@angular/platform-browser';
@@ -12,45 +12,42 @@ import { JobNewListSkeletonComponent } from './ui/job-new-list-skeleton/job-new-
     selector: 'job-news-page',
     imports: [
         JobNewListComponent,
-        JobNewListSkeletonComponent
+        JobNewListSkeletonComponent,
+        RouterLink
     ],
     templateUrl: './job-news-page.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export default class JobNewsComponent implements OnInit {
+export default class JobNewsComponent {
 
   private jobNewsService: JobNewsService = inject(JobNewsService);
   public jobNews = signal<SimpleJobNew[]>([]);
-
   private route = inject(ActivatedRoute);
-  private router = inject(Router);
   private title = inject(Title);
 
     public currentPage = toSignal<number>(
-      this.route.queryParamMap.pipe(
-        map( params => params.get('page') ?? '1'),
+      this.route.params.pipe(
+        map( params => params['page'] ?? '1'),
         map( page => ( isNaN( +page ) ? 1 : +page )),
         map( page => Math.max(1, page))
       )
     );
 
-  ngOnInit(): void {
-    this.loadJobNews();
-  }
+  public loadOnPageChanged = effect(() => {
+    this.loadJobNews(this.currentPage());
 
-  public loadJobNews(page = 0) {
-const pageToLoad = this.currentPage()! + page;
+  })
+
+  public loadJobNews(page = 1) {  // ← La página por defecto es 1 en lugar de 0
+    const pageToLoad = page;  // ← Usamos directamente "page" sin modificarlo
 
     this.jobNewsService.loadPage(pageToLoad)
-    .pipe(
-      tap(() =>
-        this.router.navigate([], { queryParams: { page: pageToLoad } })
-      ),
-      tap(() => this.title.setTitle(`Noticias Alerta Trabajo - Pag ${ pageToLoad } `) )
-    )
-    .subscribe((jobNews) => {
-      this.jobNews.set(jobNews);
-    });
-
+      .pipe(
+        tap(() => this.title.setTitle(`Noticias Alerta Trabajo - Pag ${pageToLoad}`))
+      )
+      .subscribe((jobNews) => {
+        this.jobNews.set(jobNews);
+      });
   }
+
 }

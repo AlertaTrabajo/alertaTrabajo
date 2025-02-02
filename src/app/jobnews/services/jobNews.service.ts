@@ -3,7 +3,6 @@ import { inject, Injectable } from '@angular/core';
 import { map, Observable, tap } from 'rxjs';
 import { JobNew, JobNewAPIResponse, SimpleJobNew } from '../interfaces';
 import { environments } from '../../../environments/environments';
-import bootstrap from '../../../main.server';
 
 @Injectable({
   providedIn: 'root',
@@ -13,17 +12,14 @@ export class JobNewsService {
 
   public baseUrl = environments.baseUrl;
   public loadPage(page: number): Observable<SimpleJobNew[]> {
-    if (page !== 0) {
-      --page;
-    }
-
-    page = Math.max(0, page);
-
+    // Asegurar que page nunca sea menor a 1
+    const validPage = Math.max(1, page);
+    const offset = (validPage - 1) * 6; // Cálculo correcto del offset
     return this.http.get<JobNewAPIResponse[]>(
-      `${this.baseUrl}/news?limit=10&offset=${page * 10}`
+      `${this.baseUrl}/news?limit=6&offset=${offset}`
     ).pipe(
       map((resp) => {
-        const simpleJobNews: SimpleJobNew[] = resp.map((jobNew) => ({
+        return resp.map((jobNew) => ({
           id: jobNew._id,
           title: jobNew.title,
           subtitle: jobNew.subtitle,
@@ -31,7 +27,6 @@ export class JobNewsService {
           tags: jobNew.tags,
           slug: jobNew.slug
         }));
-        return simpleJobNews;
       }),
       tap()
     );

@@ -5,9 +5,13 @@ export const routes: Routes = [
     path: 'about',
     loadComponent: () => import('./pages/about/about-page.component'),
   },
-
   {
     path: 'news',
+    redirectTo: 'news/page/1',
+    pathMatch: 'full',
+  },
+  {
+    path: 'news/page/:page',
     loadComponent: () => import('./pages/jobnews/job-news-page.component'),
   },
   {
@@ -34,7 +38,7 @@ export const routes: Routes = [
   {
     path: '**',
     redirectTo: () => {
-      return 'articles';
+      return 'news/page/1';
     },
   },
 ];

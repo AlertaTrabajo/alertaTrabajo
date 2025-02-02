@@ -8,6 +8,12 @@
 
 <!-- Botones de paginación -->
 <div class="flex justify-between mt-2">
-  <button (click)="loadJobNews(-1)" class="mt-2">Anteriores</button>
-  <button (click)="loadJobNews(1)" class="mt-2">Siguientes</button>
+  <button
+    [disabled]="currentPage() === 1"
+    [routerLink]="['/news/page', currentPage()! -1 ]"
+    class="mt-3">Anteriores</button>
+
+  <button
+    [routerLink]="['/news/page', currentPage()! +1 ]"
+    class="mt-3">Siguientes</button>
 </div>
