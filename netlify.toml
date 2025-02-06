@@ -1,10 +1,4 @@
-# netlify.toml
-
 [build]
-  publish = "dist/alerta-trabajo/browser"
-  base = "dist/alerta-trabajo/browser"
-
-[[redirects]]
-  from = "/alerta-trabajo/*"
-  to = "/alerta-trabajo/index.csr.html"
-  status = 200
+command = "ng build"
+functions = "netlify/functions"
+publish = "dist/alerta-trabajo/browser"
