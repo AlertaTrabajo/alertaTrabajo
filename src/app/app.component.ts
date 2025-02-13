@@ -1,16 +1,19 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { Router, NavigationEnd, RouterOutlet } from '@angular/router';
-import { ViewportScroller, isPlatformBrowser } from '@angular/common';
+import { CommonModule, ViewportScroller, isPlatformBrowser } from '@angular/common';
 import { PLATFORM_ID } from '@angular/core';
 import { NavbarComponent } from './shared/components/navbar/navbar.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
+import { CookieBannerComponent } from './cookies/cookie-banner.component';
 
 @Component({
   selector: 'app-root',
   imports: [
     RouterOutlet,
+    CommonModule,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    CookieBannerComponent
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
