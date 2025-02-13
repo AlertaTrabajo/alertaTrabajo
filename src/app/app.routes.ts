@@ -27,6 +27,10 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/privacy-policy/privacy-policy-page.component'),
   },
   {
+    path: 'cookies-policy',
+    loadComponent: () => import('./pages/cookies-policy/cookie-policy-page.component'),
+  },
+  {
     path: 'articles',
     loadComponent: () => import('./pages/articles/articles-page.component'),
   },

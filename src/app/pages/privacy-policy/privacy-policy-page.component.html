@@ -40,10 +40,16 @@
     </p>
 
     <h2 class="text-2xl font-semibold text-gray-800">Cookies</h2>
-<p class="text-lg text-gray-700 leading-relaxed">
-  Utilizamos cookies para mejorar tu experiencia de navegación. Puedes consultar nuestra Política de Cookies para más información.
-</p>
+    <p class="text-lg text-gray-700 leading-relaxed">
+      Utilizamos cookies para mejorar tu experiencia de navegación. Puedes consultar nuestra <a href="/cookies-policy" class="text-blue-600 font-semibold hover:underline">Política de Cookies</a> para más información.
+    </p>
 
+    <h2 class="text-2xl font-semibold text-gray-800">Gestionar Cookies</h2>
+    <p class="text-lg text-gray-700 leading-relaxed">
+      Puedes cambiar tus preferencias en cualquier momento. Si deseas revocar tu consentimiento y desactivar las cookies, haz clic en el siguiente botón:
+    </p>
+    <button (click)="revokeConsent()" class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded mt-4">
+      Revocar Consentimiento
+    </button>
   </div>
-
 </section>

@@ -9,27 +9,28 @@ import { Title, Meta } from '@angular/platform-browser';
 import { CookieConsentService } from '../../cookies/cookie-consent.service';
 
 @Component({
-  selector: 'app-privacy-policy-page',
+  selector: 'app-cookie-policy-page',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './privacy-policy-page.component.html',
+  templateUrl: './cookie-policy-page.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export default class PrivacyPolicyPageComponent implements OnInit {
+export default class CookiePolicyPageComponent implements OnInit {
   private title = inject(Title);
   private meta = inject(Meta);
   private cookieConsentService = inject(CookieConsentService);
 
   ngOnInit(): void {
-    const pageTitle = 'Política de Privacidad | Alerta Trabajo';
-    const description = 'Política de Privacidad de Alerta Trabajo. Conoce cómo protegemos tus datos personales y tus derechos.';
+    const pageTitle = 'Política de Cookies | Alerta Trabajo';
+    const description =
+      'Política de Cookies de Alerta Trabajo. Descubre qué cookies utilizamos, su propósito y cómo gestionarlas.';
 
     this.title.setTitle(pageTitle);
     this.meta.updateTag({ name: 'description', content: description });
     this.meta.updateTag({ name: 'og:title', content: pageTitle });
     this.meta.updateTag({ name: 'og:description', content: description });
     this.meta.updateTag({ name: 'og:type', content: 'website' });
-    this.meta.updateTag({ name: 'og:url', content: 'https://alertatrabajo.com/privacy-policy' });
+    this.meta.updateTag({ name: 'og:url', content: 'https://alertatrabajo.com/cookies-policy' });
     this.meta.updateTag({ name: 'twitter:card', content: 'summary' });
     this.meta.updateTag({ name: 'twitter:title', content: pageTitle });
     this.meta.updateTag({ name: 'twitter:description', content: description });
