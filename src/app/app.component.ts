@@ -5,7 +5,6 @@ import { PLATFORM_ID } from '@angular/core';
 import { NavbarComponent } from './shared/components/navbar/navbar.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { CookieBannerComponent } from './cookies/cookie-banner.component';
-import { AdsterraAdComponent } from './advertising/components/adsterra-ad/adsterra-ad.component';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +14,6 @@ import { AdsterraAdComponent } from './advertising/components/adsterra-ad/adster
     NavbarComponent,
     FooterComponent,
     CookieBannerComponent,
-    AdsterraAdComponent
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
